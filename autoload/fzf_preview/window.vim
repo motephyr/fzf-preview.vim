@@ -10,10 +10,11 @@ endfunction
 
 " Ref: https://github.com/Blacksuan19/init.nvim
 function! fzf_preview#window#create_centered_floating_window() abort
-    let columns = 169
+    let columns = 84 * 2
+    let mylines = &lines * 2
     let width = float2nr(columns * g:fzf_preview_floating_window_rate)
-    let height = float2nr(&lines * g:fzf_preview_floating_window_rate)
-    let top = ((&lines - height) / 2) - 1
+    let height = float2nr(mylines * g:fzf_preview_floating_window_rate)
+    let top = ((mylines - height) / 2) - 1
     let left = (columns - width) / 2
     let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
 
